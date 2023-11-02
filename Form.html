@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;
+background-color:white;}
+
+
+input[type=submit] {
+  background-color: skyblue;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+.container {
+  border: 5px ;
+  background-color:skyblue;
+  padding: 150px ;
+  
+
+}
+form{
+    max-width: 500px;
+            margin: 30px auto;
+            padding-left: 20px;
+}
+.word-spacing {
+            margin-right: 130px;
+
+</style>
+</head>
+<body>
+
+    
+    
+<div class="container">
+    
+    <h2 style="background-color: skyblue; color: white;text-align: center;">Customer Survey Form</h2>
+    <form id="surveyForm" onsubmit="submitForm(); return false;">
+    
+  <label for="Name">Name </label>
+        <span class="word-spacing"></span>
+        <label for="Email">Email</label>
+      
+        <br>
+        <br>
+        <input type="text" name="Name">
+        &nbsp;
+        <input type="Email" name="Email">
+        <br>
+        <br>
+        <label >Is this first you are using our products or services? </label>
+        <br>
+        <br>
+        <input type="radio" name="first" value="Yes"/>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="first" value="No"/>
+        <label for="No">No</label>
+        <br>
+        <br>
+        <label >Would you suggestion to your friends or colleague? </label>
+        <br>
+        <br>
+        <input type="radio" name="suggestion" value="Yes"/>
+        <label for="Yes">Yes</label>
+        <input type="radio" name="Suggestion" value="No"/>
+        <label for="No">No</label>
+        <br>
+        <br>
+        <label >Have satisified are you with our company overall? </label>
+        <br>
+        <br>
+        <input type="radio" name="satisfy" value="Satisfied"/>
+        <label for="Satisfied">Satisfied</label>
+        <input type="radio" name="satisfy" value="Undecided"/>
+        <label for="Undecided">Undecided</label>
+        <input type="radio" name="satisfy" value="Undecided"/>
+        <label for="Undecided">Unsatisfied</label>
+        <br>
+        <br>
+        <label for="text">Do you have any suggestions to improve our services?</label>
+        <br>
+        <br>
+        <textarea name="text" rows="5" cols="50"></textarea>
+        <br>
+        <br>
+        <input type="submit" value="Submit">
+
+
+        <input type="reset" value="Reset">
+        </form>
+ 
+<h6 style="background-color: skyblue;text-align: center; color:white;">Survey Form all Rights Reserved|Design by w3Layout</h6>
+
+  
+  <script>
+        function submitForm() {
+            // Get form values
+            var name = document.getElementsByName('Name')[0].value;
+            var email = document.getElementsByName('Email')[0].value;
+            var first = document.querySelector('input[name="first"]:checked');
+            var suggestion = document.querySelector('input[name="suggestion"]:checked');
+            var satisfy = document.querySelector('input[name="satisfy"]:checked');
+            var suggestionText = document.getElementsByName('text')[0].value;
+
+            // Build message
+            var message = "Survey Results:\n\n";
+            message += "Name: " + name + "\n";
+            message += "Email: " + email + "\n";
+            message += "Is this your first time using our products or services? " + (first ? first.value : '') + "\n";
+            message += "Would you recommend us? " + (suggestion ? suggestion.value : '') + "\n";
+            message += "Satisfaction: " + (satisfy ? satisfy.value : '') + "\n";
+            message += "Suggestions: " + suggestionText;
+
+            // Display popup
+            alert(message);
+
+            // Reset form
+            document.getElementById('surveyForm').reset();
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div>
+        <label for="Input">Enter a sentence:</label>
+        <input type="text" id="Input">
+        <button onclick="Display()">Reverse</button>
+    </div>
+
+    <div id="resultContainer"></div>
+
+    <script>
+        function reverseWords(sentence) {
+            var words = sentence.split(' ');
+
+            var reversedWords = words.map(function(word) {
+                return word.split('').reverse().join('');
+            });
+
+            var reversedSentence = reversedWords.join(' ');
+
+            return reversedSentence;
+        }
+
+        function Display() {
+            var inputSentence = document.getElementById('Input').value;
+            var reversedResult = reverseWords(inputSentence);
+
+           
+            var resultContainer = document.getElementById('resultContainer');
+            resultContainer.innerHTML = "<p>Reversed Sentence: " + reversedResult + "</p>";
+        }
+    </script>
+</body>
+</html>
